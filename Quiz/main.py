@@ -38,18 +38,7 @@ def quiz_score(n):
     elif n <= 0:
         print("You don't have the courage to challenge")
         return
-    
 
-    # if response == "rules":
-    #     print("For every correct answer you will get 4 points\nfor every wrong one -1 will be deducted")
-    #     response_2 = (input("Type 'Start' for starting the quiz : "))
-    #     response_2 = response_2.lower()
-    #     while response_2 != "start":
-    #         response_2 = input(("Type 'Start' for starting the quiz : "))
-    #         response_2 = response_2.lower()
-    #     print("------------Your Quiz is Starting-----------")
-    # elif response == "start":
-    #     print("------------Your Quiz is Starting-----------")
     while True:
         response = (input("'Want to check the rules' type 'Rules'for starting the quiz' press 'Start' :"))
         response = response.lower()
@@ -66,25 +55,7 @@ def quiz_score(n):
             print("------------Your Quiz is Starting-----------")
             break
         if response != "rules" and response != "start":           
-            print("Invalid Response type the correct one")
-            
-
-    
-        
-    # elif response != "start" and response != "rules":
-    #     response_3 = (input("'Want to check the rules' type 'Rules'for starting the quiz' press 'Start' :"))
-    #     response_3 = response_3.lower()
-    #     if response == "rules":
-    #         print("For every correct answer you will get 4 points\nfor every wrong one -1 will be deducted")
-    #         response_2 = (input("Type 'Start' for starting the quiz : "))
-    #         response_2 = response_2.lower()
-    #         while response_2 != "start":
-    #             response_2 = input(("Type 'Start' for starting the quiz : "))
-    #             response_2 = response_2.lower()
-    #             print("------------Your Quiz is Starting-----------")
-
-    
-    
+            print("Invalid Response type the correct one")               
 
     for q in questions_answer_set:
         print(q["question"])
