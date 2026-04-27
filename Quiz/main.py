@@ -39,11 +39,50 @@ def quiz_score(n):
         print("You don't have the courage to challenge")
         return
     
-    response = int(input("'Want to check the rules' Press 1'for starting the quiz' press 2 :"))
-    if response == 1:
-        print("For every correct answer you will get 4 points\nfor every wrong one -1 will be deducted")
-        input("press 2 for starting the quiz : ")
-        print("------------Your Quiz is Starting-----------")
+
+    # if response == "rules":
+    #     print("For every correct answer you will get 4 points\nfor every wrong one -1 will be deducted")
+    #     response_2 = (input("Type 'Start' for starting the quiz : "))
+    #     response_2 = response_2.lower()
+    #     while response_2 != "start":
+    #         response_2 = input(("Type 'Start' for starting the quiz : "))
+    #         response_2 = response_2.lower()
+    #     print("------------Your Quiz is Starting-----------")
+    # elif response == "start":
+    #     print("------------Your Quiz is Starting-----------")
+    while True:
+        response = (input("'Want to check the rules' type 'Rules'for starting the quiz' press 'Start' :"))
+        response = response.lower()
+        if response == "rules":
+            print("For every correct answer you will get 4 points\nfor every wrong one -1 will be deducted")
+            response_2 = (input("Type 'Start' for starting the quiz : "))
+            response_2 = response_2.lower()
+            while response_2 != "start":
+                response_2 = input(("Type 'Start' for starting the quiz : "))
+                response_2 = response_2.lower()
+            print("------------Your Quiz is Starting-----------")
+            break
+        elif response == "start":
+            print("------------Your Quiz is Starting-----------")
+            break
+        if response != "rules" and response != "start":           
+            print("Invalid Response type the correct one")
+            
+
+    
+        
+    # elif response != "start" and response != "rules":
+    #     response_3 = (input("'Want to check the rules' type 'Rules'for starting the quiz' press 'Start' :"))
+    #     response_3 = response_3.lower()
+    #     if response == "rules":
+    #         print("For every correct answer you will get 4 points\nfor every wrong one -1 will be deducted")
+    #         response_2 = (input("Type 'Start' for starting the quiz : "))
+    #         response_2 = response_2.lower()
+    #         while response_2 != "start":
+    #             response_2 = input(("Type 'Start' for starting the quiz : "))
+    #             response_2 = response_2.lower()
+    #             print("------------Your Quiz is Starting-----------")
+
     
     
 
@@ -72,6 +111,7 @@ def quiz_score(n):
     
 
     return score 
+
 
 name = input("Welcome to ABC Quiz Center tell us your name Challenger : ")
 number_of_question = int(input(f"{name} how mane questions you want challenge : "))
