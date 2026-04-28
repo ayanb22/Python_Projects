@@ -153,7 +153,7 @@ def quiz_score(n):
                 print("--------------Correct---------------")
                 score += 4
         else:
-            print("---------Wrong----------")
+            print(f"---------Wrong----------\nThe correct answer is {q['answer']}")
             score -= 1
         Question_count += 1       
         if Question_count == n:
