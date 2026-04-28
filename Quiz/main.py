@@ -1,7 +1,8 @@
 def quiz_score(n):
     score = 0
     Question_count = 0
-    questions_answer_set = [
+ 
+    beginner = [
         {
             "question" : "1. What is the capital of India?",
             "options" : ["1) Mumbai ", "2) Delhi", "3) Kolkata" , "4) Chennai" ] ,
@@ -15,7 +16,7 @@ def quiz_score(n):
         },
 
         {
-            "question" : "3. What is 5 + 7",
+            "question" : "3. What is 5 + 7?",
             "options" : ["1) 20 ", "2) 5", "3) 10" , "4) 12" ] ,
             "answer" : 4
         },
@@ -27,13 +28,93 @@ def quiz_score(n):
         },
 
         {
-            "question" : "5. Which is called red planet",
+            "question" : "5. Which is called red planet?",
             "options" : ["1) Earth ", "2) Mars", "3) Venus" , "4) Jupiter" ] ,
             "answer" : 2
         }
     ]
+
+    medium = [
+        {
+            "question" : "1. What is the output of len('Python')?",
+            "options" : ["1) 5 ", "2) 6", "3) 7" , "4) Error" ] ,
+            "answer" : 2
+        },
+
+        {
+            "question" : "2. Which keyword is used to define a function in Python?",
+            "options" : ["1) function ", "2) define", "3) def" , "4) fun" ] ,
+            "answer" : 3
+        },
+
+        {
+            "question" : "3. What is the result of 10 // 3 in Python?",
+            "options" : ["1) 3.33 ", "2) 3", "3) 4" , "4) 3.0" ] ,
+            "answer" : 2
+        },
+
+        {
+            "question" : "4. Which data structure uses key-value pairs?",
+            "options" : ["1) List ", "2) Tuple", "3) Dictionary" , "4) Set" ] ,
+            "answer" : 3
+        },
+
+        {
+            "question" : "5. What will bool(0) return?",
+            "options" : ["1) True ", "2) False", "3) 0" , "4) Error" ] ,
+            "answer" : 2
+        }
+    ]
+    hard = [
+        {
+            "question" : "1. What is the output of 3 * '7'?",
+            "options" : ["1) 21 ", "2) 777", "3) Error" , "4) 37" ] ,
+            "answer" : 2
+        },
+
+        {
+            "question" : "2. What is the output of type([])?",
+            "options" : ["1) list ", "2) <class'list'>", "3) array" , "4) List" ] ,
+            "answer" : 2
+        },
+
+        {
+            "question" : "What will happen if you access a key that doesn't exist in a dictionary?",
+            "options" : ["1) Returns None ", "2) Returns 0", "3) KeyError" , "4) IndexError" ] ,
+            "answer" : 3
+        },
+
+        {
+            "question" : "4. What is the output of True + True in Python?",
+            "options" : ["1) True ", "2) 2", "3) False" , "4) Error" ] ,
+            "answer" : 2
+        },
+
+        {
+            "question" : "5. Which of the following is immutable?",
+            "options" : ["1) List ", "2) Dictionary", "3) Set" , "4) Tuple" ] ,
+            "answer" : 4
+        }
+    ]
+
+    while True:
+        response = input("Type 'Beginner' or 'Medium' or 'Hard' according to your level : ")
+        response = response.lower()
+        if response == "beginner":
+            questions_answer_set = beginner
+            break
+        elif response == "medium":
+            questions_answer_set = medium
+            break
+        elif response == "hard":
+            questions_answer_set = hard
+            break
+        else:
+            print("Invalid response Type the correct one")
+
+  
     if n > len(questions_answer_set):
-        print("There are not that number of questions available")
+        print("There are not that number of questions available in that level")
         return
     elif n <= 0:
         print("You don't have the courage to challenge")
