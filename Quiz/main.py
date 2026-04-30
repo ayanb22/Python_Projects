@@ -1,34 +1,38 @@
+import random
 def quiz_score(n):
     score = 0
     Question_count = 0
+    correct = 0
+    wrong = 0
+
  
     beginner = [
         {
-            "question" : "1. What is the capital of India?",
+            "question" : "What is the capital of India?",
             "options" : ["1) Mumbai ", "2) Delhi", "3) Kolkata" , "4) Chennai" ] ,
             "answer" : 2
         },
 
         {
-            "question" : "2. Which language is used for web development?",
+            "question" : "Which language is used for web development?",
             "options" : ["1) Python ", "2) Java", "3) HTML" , "4) C++" ] ,
             "answer" : 3
         },
 
         {
-            "question" : "3. What is 5 + 7?",
+            "question" : "What is 5 + 7?",
             "options" : ["1) 20 ", "2) 5", "3) 10" , "4) 12" ] ,
             "answer" : 4
         },
 
         {
-            "question" : "4. Which data type is used to store text in Python?",
+            "question" : "Which data type is used to store text in Python?",
             "options" : ["1) int ", "2) float", "3) str" , "4) bool" ] ,
             "answer" : 3
         },
 
         {
-            "question" : "5. Which is called red planet?",
+            "question" : "Which is called red planet?",
             "options" : ["1) Earth ", "2) Mars", "3) Venus" , "4) Jupiter" ] ,
             "answer" : 2
         }
@@ -36,44 +40,44 @@ def quiz_score(n):
 
     medium = [
         {
-            "question" : "1. What is the output of len('Python')?",
+            "question" : "What is the output of len('Python')?",
             "options" : ["1) 5 ", "2) 6", "3) 7" , "4) Error" ] ,
             "answer" : 2
         },
 
         {
-            "question" : "2. Which keyword is used to define a function in Python?",
+            "question" : "Which keyword is used to define a function in Python?",
             "options" : ["1) function ", "2) define", "3) def" , "4) fun" ] ,
             "answer" : 3
         },
 
         {
-            "question" : "3. What is the result of 10 // 3 in Python?",
+            "question" : "What is the result of 10 // 3 in Python?",
             "options" : ["1) 3.33 ", "2) 3", "3) 4" , "4) 3.0" ] ,
             "answer" : 2
         },
 
         {
-            "question" : "4. Which data structure uses key-value pairs?",
+            "question" : "Which data structure uses key-value pairs?",
             "options" : ["1) List ", "2) Tuple", "3) Dictionary" , "4) Set" ] ,
             "answer" : 3
         },
 
         {
-            "question" : "5. What will bool(0) return?",
+            "question" : "What will bool(0) return?",
             "options" : ["1) True ", "2) False", "3) 0" , "4) Error" ] ,
             "answer" : 2
         }
     ]
     hard = [
         {
-            "question" : "1. What is the output of 3 * '7'?",
+            "question" : "What is the output of 3 * '7'?",
             "options" : ["1) 21 ", "2) 777", "3) Error" , "4) 37" ] ,
             "answer" : 2
         },
 
         {
-            "question" : "2. What is the output of type([])?",
+            "question" : "What is the output of type([])?",
             "options" : ["1) list ", "2) <class'list'>", "3) array" , "4) List" ] ,
             "answer" : 2
         },
@@ -85,18 +89,19 @@ def quiz_score(n):
         },
 
         {
-            "question" : "4. What is the output of True + True in Python?",
+            "question" : "What is the output of True + True in Python?",
             "options" : ["1) True ", "2) 2", "3) False" , "4) Error" ] ,
             "answer" : 2
         },
 
         {
-            "question" : "5. Which of the following is immutable?",
+            "question" : "Which of the following is immutable?",
             "options" : ["1) List ", "2) Dictionary", "3) Set" , "4) Tuple" ] ,
             "answer" : 4
         }
     ]
 
+    # Choosing Level for the quiz
     while True:
         response = input("Type 'Beginner' or 'Medium' or 'Hard' according to your level : ")
         response = response.lower()
@@ -112,7 +117,7 @@ def quiz_score(n):
         else:
             print("Invalid response Type the correct one")
 
-  
+    
     if n > len(questions_answer_set):
         print("There are not that number of questions available in that level")
         return
@@ -120,6 +125,7 @@ def quiz_score(n):
         print("You don't have the courage to challenge")
         return
 
+    # Rules Checking & Start Quiz
     while True:
         response = (input("'Want to check the rules' type 'Rules'for starting the quiz' press 'Start' :"))
         response = response.lower()
@@ -136,10 +142,12 @@ def quiz_score(n):
             print("------------Your Quiz is Starting-----------")
             break
         if response != "rules" and response != "start":           
-            print("Invalid Response type the correct one")               
+            print("Invalid Response type the correct one")  
 
-    for q in questions_answer_set:
-        print(q["question"])
+    # Printing Question-Option-Answer, Calculating Score, Printing Result                  
+    random.shuffle(questions_answer_set)
+    for sl_number, q in enumerate(questions_answer_set, start=1):
+        print(sl_number, ")", q['question'])
         for option in q["options"]:
             print(option)
         answer = int(input("Enter your answer : "))
@@ -151,21 +159,43 @@ def quiz_score(n):
             
         if answer == q["answer"]:
                 print("--------------Correct---------------")
+                correct += 1 
                 score += 4
         else:
             print(f"---------Wrong----------\nThe correct answer is {q['answer']}")
             score -= 1
+            wrong += 1
         Question_count += 1       
         if Question_count == n:
-            break
+            break    
     
-   
-    
-
-    return score 
+    performance = round((correct / n) * 100)
+    return score, performance, correct, wrong, Question_count
 
 
 name = input("Welcome to ABC Quiz Center tell us your name Challenger : ")
 number_of_question = int(input(f"{name} how mane questions you want challenge : "))
-print(f"{name} Your final Score is : {quiz_score(number_of_question)}")
+score, performance, correct, wrong, question_count = quiz_score(number_of_question)
+
+print("------------------------Result----------------------------")
+print(f"Name : {name}")
+
+print(f"Questioon Attempted : {question_count}")
+print(f"Correct : {correct}")
+print(f"Wrong : {wrong}")
+print(f"Score : {score}")
+
+if performance >= 80:
+    print(f"Performance : {performance}% (Excellent)")
+elif performance >= 60:
+    print(f"Performance : {performance}% (Good)")
+elif performance >= 40:
+    print(f"Performance : {performance}% (Average)")
+else:
+    print(f"Performance : {performance}% (You Need to Perform Better)")
+
+
+
+
+
 
