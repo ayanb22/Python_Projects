@@ -15,4 +15,5 @@ A command-line based quiz game built using Python. The user selects the number o
 - Score calculation (+4 for correct, -1 for wrong)
 - User-controlled number of questions
 - User-controlled level for the quiz
+- Giving Performance Feedback
 
