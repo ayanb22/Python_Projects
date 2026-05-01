@@ -4,7 +4,7 @@ Building Python projects from fundamentals to real-world applications, focusing 
 
 ---
 
-## 📌 Project 1: CLI Quiz Game
+## Project 1: CLI Quiz Game
 
 ### Description
 A command-line based quiz game built using Python. The user selects the number of questions, answers multiple-choice questions, and receives a final score based on performance.
