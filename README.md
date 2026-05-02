@@ -16,4 +16,5 @@ A command-line based quiz game built using Python. The user selects the number o
 - User-controlled number of questions
 - User-controlled level for the quiz
 - Giving Performance Feedback
+- Replay Feature after completing one round of Quiz
 
