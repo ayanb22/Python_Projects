@@ -128,28 +128,33 @@ def quiz_run(n,m):
             print(option)
         
         while True:
-            try:
-                answer = int(input("Enter your answer : "))
-                while answer <1 or answer > len(q["options"]):
-                    print("------------Pay Attention Invalid Response-----------")
+                try:
                     answer = int(input("Enter your answer : "))
-      
-                if answer == q["answer"]:
-                    print("--------------Correct---------------")
-                    correct += 1 
-                    score += 4
-                    break
-                else:
-                    print(f"---------Wrong----------\nThe correct answer is {q['answer']}")
-                    score -= 1
-                    wrong += 1
-                    break
-            except ValueError:
-                    print("-------------Invalid Response------------")
+                    if answer <1 or answer > len(q["options"]):
+                        print("------------Pay Attention it is an Invalid Option number-----------") 
+                    elif answer == q["answer"]:
+                        print("--------------Correct---------------")
+                        correct += 1 
+                        score += 4
+                        break
+                    else:
+                        print(f"---------Wrong----------\nThe correct answer is {q['answer']}")
+                        score -= 1
+                        wrong += 1
+                        break
+                except ValueError:
+                        print(f"-------------Invalid Response, Choose between 1 and {len(q['options'])}------------")
 
         Question_count += 1       
         if Question_count == n:
+            print("-----------------Quiz is ending------------------\n" \
+                  "=================================================\n" \
+                  "=================================================")
             break 
+        else:
+            print("-----------------Next Question-------------------\n" \
+                  "=================================================\n" \
+                  "=================================================")
    
     
     performance = round((correct / n) * 100)
@@ -159,52 +164,73 @@ def quiz_run(n,m):
 name = input("Welcome to ABC Quiz Center tell us your name Challenger : ")
 
 while True:
-    response = input("Type 'Beginner' or 'Medium' or 'Hard' according to your level : ")
-    response = response.lower()
-    if response == "beginner":
-        questions_answer_set = beginner
-        break
-    elif response == "medium":
-        questions_answer_set = medium
-        break
-    elif response == "hard":
-        questions_answer_set = hard
-        break
-    else:
-        print("Invalid response Type the correct one")
+    while True:
+        response = input("Type 'Beginner' or 'Medium' or 'Hard' according to your level : ")
+        response = response.lower()
+        if response == "beginner":
+            questions_answer_set = beginner
+            break
+        elif response == "medium":
+            questions_answer_set = medium
+            break
+        elif response == "hard":
+            questions_answer_set = hard
+            break
+        else:
+            print("Invalid response Type the correct one")
 
-while True:
-        try:
-            number_of_question = int(input(f"{name} how many questions you want challenge : "))
-            if number_of_question <= len(questions_answer_set) and number_of_question > 0:
-                break
-            elif number_of_question > len(questions_answer_set):
-                print("There are not that number of questions available in that level")
-            elif number_of_question <= 0:
+    while True:
+            try:
+                number_of_question = int(input(f"{name} how many questions you want challenge : "))
+                if number_of_question <= len(questions_answer_set) and number_of_question > 0:
+                    break
+                elif number_of_question > len(questions_answer_set):
+                    print("There are not that number of questions available in that level")
+                elif number_of_question <= 0:
+                    print("That is an invalid input")
+            except ValueError:
                 print("That is an invalid input")
-        except ValueError:
-            print("That is an invalid input")
+
+    score, performance, correct, wrong, question_count = quiz_run(number_of_question, questions_answer_set)
+    print("===========================================================")
+
+    print("------------------------Result----------------------------")
+    print(f"Name : {name}")
+
+    print(f"Questions Attempted : {question_count}")
+    print(f"Correct : {correct}")
+    print(f"Wrong : {wrong}")
+    print(f"Score : {score}")
+
+    if performance >= 80:
+        print(f"Performance : {performance}% (Excellent)")
+    elif performance >= 60:
+        print(f"Performance : {performance}% (Good)")
+    elif performance >= 40:
+        print(f"Performance : {performance}% (Average)")
+    else:
+        print(f"Performance : {performance}% (You Need to Perform Better)")
 
 
+    print("=============================================")
 
-score, performance, correct, wrong, question_count = quiz_run(number_of_question, questions_answer_set)
+    
+    while True:
+        replay = input("Do you want to play again?")
+        replay = replay.lower()
+        if replay == "yes":
+            print("Starting a new quiz...")
+            break        
+        if replay == "no":
+            break
+        else:
+            print("Invalid response, Type Yes or No")
+    if replay == "no":
+        print("Thanks for playing our game\nHope you love it")
+        break
+    
 
-print("------------------------Result----------------------------")
-print(f"Name : {name}")
 
-print(f"Questioon Attempted : {question_count}")
-print(f"Correct : {correct}")
-print(f"Wrong : {wrong}")
-print(f"Score : {score}")
-
-if performance >= 80:
-    print(f"Performance : {performance}% (Excellent)")
-elif performance >= 60:
-    print(f"Performance : {performance}% (Good)")
-elif performance >= 40:
-    print(f"Performance : {performance}% (Average)")
-else:
-    print(f"Performance : {performance}% (You Need to Perform Better)")
 
 
 
