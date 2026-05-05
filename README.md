@@ -4,7 +4,7 @@ Building Python projects from fundamentals to real-world applications, focusing 
 
 ---
 
-## Project 1 : CLI Quiz Game
+## Project 1: CLI Quiz Game(V1)
 
 ### Description
 A command-line based quiz game built using Python. The user selects the number of questions, answers multiple-choice questions, and receives a final score based on performance.
@@ -19,7 +19,7 @@ A command-line based quiz game built using Python. The user selects the number o
 - Replay Feature after completing one round of Quiz
 
 
-## Project 2 : CLI Result Management System
+## Project 2: CLI Result Management System(V1)
 
 ### Description
 This is a simple Result Management System built using Python.  
@@ -32,4 +32,5 @@ It takes student details, allows input of subject-wise marks based on stream, an
 - Grade assignment based on performance
 - Pass/Fail result generation
 - Clean output formatting
+- Replay Feature
 
