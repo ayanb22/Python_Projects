@@ -1,71 +1,104 @@
+def stream_choice(n):
 
-def grade(n):
-    subject_marks = {}
-    total = 0
- 
     science = ["English", "Bengali", "Math", "Physics", "Chemistry", "Biology"]
     commerce = ["English", "Bengali", "Math", "Economics", "Accountancy", "Business"]
     arts = ["English", "Bengali", "Math", "Geography", "History", "Psychology"]
 
-    n = n.lower()
+    n = n.lower().strip()
     while True:
         if n == "science":
-            n = science
+            subject_choice = science
             break
         elif n == "commerce":
-            n = commerce
+            subject_choice = commerce
             break
         elif n == "arts":
-            n = arts
+            subject_choice = arts
             break
         else:
             print("It is an invalid response")
             n = input("Tell us your stream : ")
+            n = n.lower().strip()
 
-    for subject in n:
-        marks = int(input(f"Enter the marks for {subject} : "))
-        total += marks
-        subject_marks[subject] = marks
+    return subject_choice
+    
+def marks_input(subject_choice):
+    subject_marks = {}
+    
+ 
+
+    for subject in subject_choice:
+        while True:
+            try:
+                marks = int(input(f"Enter the marks for {subject} : "))
+                if marks < 0 or marks > 100:
+                    print("Thats an invalid input please enter a marks between 0-100")
+                else:
+                    subject_marks[subject] = marks
+                    print("===================================")
+                    break
+            except ValueError:
+                print("Enter a valid input : ")
+            
         
-    maximum_marks = len(n) * 100
+        
+    return subject_marks
 
+
+def result(subject_marks):
+
+    print("\n========== RESULT ==========\n")
+    total = sum(subject_marks.values())     
+    maximum_marks = len(subject_marks) * 100
     percentage = round((total / maximum_marks) * 100)
 
-    return subject_marks, total, maximum_marks, percentage
+    if percentage >= 90:
+        grade = "A"
+        remarks = "Pass"
+    elif percentage >= 75:
+        grade = "B"
+        remarks = "Pass"
+    elif percentage >= 60:
+        grade = "C"
+        remarks = "Pass"
+    elif percentage >= 40:
+        grade = "D"
+        remarks = "Pass"
+    else: 
+        grade = "F"
+        remarks = "Fail"
+
+    return total, maximum_marks, percentage, grade, remarks
 
 
+while True:
+    name = input("Enter your name : ")
+    stream = input(f"{name} Tell us your stream : ")
+    subjects = stream_choice(stream)
+    subject_marks = marks_input(subjects)
+    total, maximum_marks, percentage, grade, remarks = result(subject_marks)
+    print(f"Name : {name}")
+    print(f"Stream : {stream.strip().capitalize()}")
+    for key , value in subject_marks.items():
+        print(f"{key} : {value}")
+    print(f"Total = {total}/{maximum_marks}")
+    print(f"Percentage = {percentage}")
+    print(f"Grade = {grade}")
+    print(f"Result = {remarks}")
 
-name = input("Enter your name : ")
-stream = input(f"{name} Tell us your stream : ")
-subject_marks , total, maximum_marks, percentage = grade(stream)
-
-if percentage >= 90:
-    Grade = "A"
-    result = "Pass"
-elif percentage <= 89 and percentage >= 75:
-    Grade = "B"
-    result = "Pass"
-elif percentage <= 74 and percentage >= 60:
-    Grade = "C"
-    result = "Pass"
-elif percentage <= 59 and percentage >= 40:
-    Grade = "D"
-    result = "Pass"
-else: 
-    Grade = "F"
-    result = "Fail"
-
-
-
-
-print(f"Name : {name}")
-print(f"Stream : {stream}")
-for key , value in subject_marks.items():
-    print(f"{key} : {value}")
-print(f"Total = {total}/{maximum_marks}")
-print(f"Percentage = {percentage}")
-print(f"Grade = {Grade}")
-print(f"Result = {result}")
+    while True:
+        response = input("Do you want to calculate another result : ")
+        response = response.lower().strip()
+        if response == "yes":
+            print("-----------Your result calculation is starting----------")
+            break
+        elif response == "no":
+            print("------ Thanks for visiting --------")
+            break
+        else:
+            print("That is an invalid response, please type 'yes' or 'no'")
+    if response == "no":
+        break
 
 
 
