@@ -31,6 +31,8 @@ It takes student details, allows input of subject-wise marks based on stream, an
 - Automatic total and percentage calculation
 - Grade assignment based on performance
 - Pass/Fail result generation
+- Average , Percentage Calculator
+- Maximum, Minimum marks by subjects
 - Clean output formatting
 - Replay Feature
 
