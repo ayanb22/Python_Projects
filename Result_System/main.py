@@ -51,6 +51,10 @@ def result(subject_marks):
     total = sum(subject_marks.values())     
     maximum_marks = len(subject_marks) * 100
     percentage = round((total / maximum_marks) * 100)
+    average = round(total/len(subject_marks))
+    highest_marks =  max(subject_marks, key=subject_marks.get)
+    lowest_marks =  min(subject_marks, key=subject_marks.get)
+    
 
     if percentage >= 90:
         grade = "A"
@@ -68,7 +72,7 @@ def result(subject_marks):
         grade = "F"
         remarks = "Fail"
 
-    return total, maximum_marks, percentage, grade, remarks
+    return total, maximum_marks, percentage, grade, remarks, average, lowest_marks, highest_marks
 
 
 while True:
@@ -76,13 +80,16 @@ while True:
     stream = input(f"{name} Tell us your stream : ")
     subjects = stream_choice(stream)
     subject_marks = marks_input(subjects)
-    total, maximum_marks, percentage, grade, remarks = result(subject_marks)
+    total, maximum_marks, percentage, grade, remarks, average, lowest_marks, highest_marks = result(subject_marks)
     print(f"Name : {name}")
     print(f"Stream : {stream.strip().capitalize()}")
     for key , value in subject_marks.items():
-        print(f"{key} : {value}")
+        print(f"{key:<12} : {value}")
     print(f"Total = {total}/{maximum_marks}")
+    print(f"Average : {average}")
     print(f"Percentage = {percentage}")
+    print(f"Highest: {highest_marks} ({subject_marks[highest_marks]})")
+    print(f"Lowest: {lowest_marks} ({subject_marks[lowest_marks]})")
     print(f"Grade = {grade}")
     print(f"Result = {remarks}")
 
