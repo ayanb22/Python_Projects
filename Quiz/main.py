@@ -95,6 +95,105 @@ hard = [
         }
     ]
 
+# Beginner Questions
+beginner.extend([
+    {
+        "question": "Which animal is known as the King of the Jungle?",
+        "options": ["1) Tiger", "2) Lion", "3) Elephant", "4) Bear"],
+        "answer": 2
+    },
+
+    {
+        "question": "Which keyword is used to print output in Python?",
+        "options": ["1) show", "2) display", "3) print", "4) output"],
+        "answer": 3
+    },
+
+    {
+        "question": "How many days are there in a week?",
+        "options": ["1) 5", "2) 6", "3) 7", "4) 8"],
+        "answer": 3
+    },
+
+    {
+        "question": "Which symbol is used for comments in Python?",
+        "options": ["1) //", "2) #", "3) /*", "4) --"],
+        "answer": 2
+    },
+
+    {
+        "question": "Which planet is closest to the Sun?",
+        "options": ["1) Earth", "2) Venus", "3) Mercury", "4) Mars"],
+        "answer": 3
+    }
+])
+
+# Medium Questions
+medium.extend([
+    {
+        "question": "Which function is used to take input from the user in Python?",
+        "options": ["1) scan()", "2) get()", "3) input()", "4) enter()"],
+        "answer": 3
+    },
+
+    {
+        "question": "What is the output of 2 ** 3 in Python?",
+        "options": ["1) 6", "2) 8", "3) 9", "4) 5"],
+        "answer": 2
+    },
+
+    {
+        "question": "Which loop is used when the number of iterations is known?",
+        "options": ["1) while loop", "2) for loop", "3) do-while loop", "4) infinite loop"],
+        "answer": 2
+    },
+
+    {
+        "question": "Which operator is used for comparison?",
+        "options": ["1) =", "2) ==", "3) +=", "4) //"],
+        "answer": 2
+    },
+
+    {
+        "question": "What is the index of the first element in a Python list?",
+        "options": ["1) 0", "2) 1", "3) -1", "4) Depends on list"],
+        "answer": 1
+    }
+])
+
+# Hard Questions
+hard.extend([
+    {
+        "question": "What is the output of len([1, 2, 3, 4])?",
+        "options": ["1) 3", "2) 4", "3) 5", "4) Error"],
+        "answer": 2
+    },
+
+    {
+        "question": "Which method is used to add an item to a list?",
+        "options": ["1) insert()", "2) append()", "3) add()", "4) push()"],
+        "answer": 2
+    },
+
+    {
+        "question": "What is the output of 'Python'[0]?",
+        "options": ["1) P", "2) y", "3) Python", "4) Error"],
+        "answer": 1
+    },
+
+    {
+        "question": "Which keyword is used for exception handling in Python?",
+        "options": ["1) catch", "2) error", "3) try", "4) excepted"],
+        "answer": 3
+    },
+
+    {
+        "question": "What does the break statement do in a loop?",
+        "options": ["1) Skips one iteration", "2) Stops the loop", "3) Restarts the loop", "4) Pauses the loop"],
+        "answer": 2
+    }
+])
+
 def quiz_run(n,m):
     score = 0
     Question_count = 0
