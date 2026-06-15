@@ -24,8 +24,6 @@ def stream_choice(n):
     
 def marks_input(subject_choice):
     subject_marks = {}
-    
- 
 
     for subject in subject_choice:
         while True:
@@ -39,9 +37,7 @@ def marks_input(subject_choice):
                     break
             except ValueError:
                 print("Enter a valid input : ")
-            
-        
-        
+       
     return subject_marks
 
 
@@ -55,7 +51,6 @@ def result(subject_marks):
     highest_marks =  max(subject_marks, key=subject_marks.get)
     lowest_marks =  min(subject_marks, key=subject_marks.get)
     
-
     if percentage >= 90:
         grade = "A"
         remarks = "Pass"
