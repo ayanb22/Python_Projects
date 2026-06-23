@@ -18,3 +18,17 @@ class Account:
             else:
                 print("Try again that is an invalid amount....")
                 amount = int(input("Enter the amount you want to deposit : "))
+
+    def withdraw(self, amount):
+        self.amount = amount
+        while True:
+            if amount > self.balance:
+                print("Try again that is an invalid amount....")
+                amount = int(input("Enter the amount you want to withdraw : "))
+            else:
+                self.balance -= amount               
+                print(f"Amount Rs.{amount} is debited")
+                print(f"Your Current Balance is {self.balance}")
+                print("Withdrawal Successful")
+                break
+        
