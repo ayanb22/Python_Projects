@@ -31,4 +31,9 @@ class Account:
                 print(f"Your Current Balance is {self.balance}")
                 print("Withdrawal Successful")
                 break
+
+    def checkbalance(self):
+        print(f"Your Current Balance is {self.balance}")
+
+
         
