@@ -73,9 +73,9 @@ A Command-Line Banking System built using Python that simulates basic banking op
 - File I/O
 - Exception Handling
 
-## 📂 Project Structure
+## Project Structure
 
-
+```text
 Bank-System/
 │
 ├── main.py              # Main program
@@ -83,7 +83,7 @@ Bank-System/
 ├── accounts.json        # Stores user account data
 ├── .gitignore
 └── README.md
-
+```
   
 ### Demo Accounts
 You can use the following demo accounts to test the application.
