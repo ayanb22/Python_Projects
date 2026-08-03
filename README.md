@@ -73,15 +73,17 @@ A Command-Line Banking System built using Python that simulates basic banking op
 - File I/O
 - Exception Handling
 
-### Project Structure
-- Bank-System/
-  │
-  ├── main.py              # Main program
-  ├── account.py           # Account class and banking methods
-  ├── accounts.json        # Stores user account data
-  ├── .gitignore
-  └── README.md
-  
+## 📂 Project Structure
+
+
+Bank-System/
+│
+├── main.py              # Main program
+├── account.py           # Account class and banking methods
+├── accounts.json        # Stores user account data
+├── .gitignore
+└── README.md
+
   
 ### Demo Accounts
 You can use the following demo accounts to test the application.
