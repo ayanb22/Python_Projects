@@ -2,12 +2,22 @@ class Account:
     @staticmethod 
     def bank_name():
         print("Welcome to ABC Bank...")
-    def __init__(self, name, amount):
+    next_account_no = 1001
+    def __init__(self, name, balance):
+        self.account_no = Account.next_account_no
         self.name = name
-        self.amount = amount
+        self.balance = balance
+        Account.next_account_no += 1
 
-    def deposit(self):
-        amount = self.amount
+    def new_user_details(self):
+        print("------Account Details------")
+        print(f"Account Number: {self.account_no}")
+        print(f"Account Holder: {self.name}")
+        print(f"Account Balance: {self.balance}")
+
+
+    def deposit(self, amount):
+        self.amount = amount 
         while True:
             if amount > 0:               
                 self.balance += amount
